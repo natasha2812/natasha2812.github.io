@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html><meta charset="ISO-8859-1">
+
+<title>Insert title here</title>
+<head>
+<meta name="viewport" content ="width=device-width , inital-scale=1">
+<style>
+body{
+background:#E6E6FA;
+}
+h1{
+color:#800080;
+font-family:cursive;
+text-align: Center;
+}
+table{
+border: 1px solid #000000;}
+td, th {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
+
+</style>
+<script>
+        function validate()
+        {
+            var bcats=document.getElementsByName("bookCategory");
+            var bcat;
+            var price;
+            var disc;
+            for(var i=0;i<bcats.length;i++)
+            {
+                if(bcats[i].checked)
+                {
+                    bcat=bcats[i].value;
+                }
+            }
+            var bcount=document.getElementById("bookval").value;
+            bcount=parseInt(bcount);
+            if(bcat=="Science")
+            {
+                price=400;
+                if(bcount<=250)
+                {
+                    disc=5;
+                }
+                else{
+                    disc=7;
+                }
+            }
+            else{
+                price=300;
+                if(bcount<=250)
+                {
+                    disc=3;
+                }
+                else{
+                    disc=4;
+                }
+            }
+            var tot=bcount*price-((bcount*price*disc)/100);
+            document.getElementById("result").innerHTML="Total Price is:"+tot;
+        }
+
+    </script>
+   
+</head>
+<body >
+<h1>E-BOOK GRAND SALE</h1>
+<form>
+Customer name  <input type="text" name="custn" id="custn"  pattern="[a-zA-Z\s]+" required ><br>
+Mobile Number  <input type="number" name="mno" id="mno" maxlength="9" pattern="[89][0-9]{9}" required><br>
+Book Category    <input type="radio" name="cat" id="bookCategory" required >Science    <input type="radio" name="cat" id="bookCategory" required>Comic<br>
+Type <input list="Booktype" name="Booktype" required auto-complete >
+
+<datalist id="Booktype" >
+  <option value="Weekly">
+  <option value="Monthly">
+  <option value="Fortnightly">
+  </option>
+  </datalist><br>
+  No of Books required <input type="range" name="bookCount" id="bookval" min="1" max="500" value="1" oninput="markOutputId.value=bookval.value">
+                    <output name="markOutputName" id="markOutputId">
+                    </output>
+                    <br>
+<input type="submit" value="submit" name="s" id="s" onclick="validate()">
+<input type="reset" value="reset" name="r" id="r">
+<br><br> <div id="result"></div> 
+<br><br>
+Discunt rate chart
+<table  id =“discounttable”>
+<tr><bold>
+<th>Book Type</th>
+<th>Per Book Cost</th>
+<th> Discount Rate(in Percentage)</th>
+</bold>
+</tr>
+<tr>
+<td>
+Science</td>
+<td>
+400</td>
+<td> 5% if total book count <=250 </td>
+</tr>
+<tr>
+<td>
+Science</td>
+<td>400</td>
+<td>
+7% if total book count <250</td></tr>
+<tr>
+<td>
+Comics</td>
+<td>
+300</td>
+<td> 3% if total book count <=250 </td>
+</tr>
+<tr>
+<td>
+Comics</td>
+<td>300</td>
+<td>
+4% if total book count <250</td></tr>
+</table>
+</form>
+</body>
+</html>
+<!-- <center><h1> welcome to chitkara
+</h1>
+Enter id : <input type ="number" name ="num1"/>
+Enter name : <input type ="text" name ="text1"/>
+<input type="button"  onclick="Show()" value =calculated">
+</center> -->
