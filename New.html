@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ><meta charset="ISO-8859-1">
+<head>
+<style>
+body{
+background:#00CED1;
+}
+h1	{color:#0000FF;
+font-family:monospace;
+text-align:center
+}
+table	{
+font-family:monospace;
+font-weight: bold;}
+</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets</title>
+    <script>
+    function validate(){
+    	var aprice=120;
+    	var cprice=100;
+    	var acount=document.getElementById("noa").value;
+    	var ccount=document.getElementById("noc").value;
+        acount=parseInt(acount);
+        ccount=parseInt(ccount);
+        if (((noa<=1)&&(noa>=10))&& ((noc<=1) && (noc>=5))){
+        	var atot=acount*aprice;
+        	var ctot=ccount*cprice;
+        	var tot =atot+ctot;
+        	document.getElementById("total").innerHTML="Total Price is:"+tot;
+        	}
+        else{
+  document.getElementById("total").innerHTML="No of adults should be between 1-10  and No of children should be between 1-5";
+        }
+ 
+    }
+    </script>
+    </head>
+    <body>
+    <h1>BOOK A SHOW TICKET BOOKING</h1><table>
+    <form ><th></th><tr><td>
+    Customer name
+    </td><td> 
+    <input type="text" name="custn" id="custn"  pattern="[a-zA-Z\s]+" required ><br>
+    </td></tr> <tr><td>
+Movie Name
+</td><td> <input list="MovieName" name="Movie Name" required auto-complete >
+
+<datalist id="MovieName" >
+  <option value="Irada">
+  <option value="Rangoon">
+  <option value="Logan">
+  <option value="Fist Fight">
+  </option>
+  </datalist><br></td></tr> <tr><td>
+  Circle
+  </td><td> <input list="Circle" name="Circle" required auto-complete >
+
+<datalist id="Circle" >
+  <option value="Gold">
+  <option value="Platinum">
+  <option value="Silver">
+  </option>
+  </datalist><br></td></tr> <tr><td>
+Mobile Number 
+</td><td> <input type="number" placeholder="enter Mobile # here" 
+name="mno" id="mno" maxlength="10" pattern="[89][0-9]{10}" required><br>
+</td></tr> <tr><td>
+Show date and time </td><td>
+<input type="date" id="showdate" name="showtime">
+<br></td></tr> <tr><td>
+No of Adults
+</td><td>
+<input type="number" 
+name="noa" id="noa"   required><br>
+</td></tr> <tr><td>
+No of Children
+</td><td>
+<input type="number" 
+name="noc" id="noc"   required><br>
+</td></tr> <tr><td>
+<input type="submit" value="Book My Show" name="s" id="s"  onclick="validate()")>
+</td><td>
+<input type="reset" value="reset" name="r" id="r">
+</td></tr> 
+<br>
+<br>
+<div id="total"></div>
+</form>
+</table>
+    </body>  
+
+</html>
